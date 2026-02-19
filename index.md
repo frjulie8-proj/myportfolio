@@ -10,7 +10,7 @@ title: Home
 <a href="/contact">Contact</a>
 </div>
 
-# Your Name Julie Ngo Tran
+# Julie Ngo Tran
 
 MS Applied Business Analytics  
 SQL • Python • R  
