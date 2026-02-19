@@ -1,1 +1,19 @@
 theme: jekyll-theme-minimal
+
+
+title: Julie Ngo Tran
+description: MS Applied Business Analytics at Boston University
+
+nav:
+  - name: Home
+    link: /
+  - name: About
+    link: /about
+  - name: Education
+    link: /education
+  - name: Passion
+    link: /passion
+  - name: Projects
+    link: /projects
+  - name: Contact
+    link: /contact
