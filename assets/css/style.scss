@@ -465,6 +465,8 @@ section a:focus {
 .contact-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  border-color: var(--accent);
+  background: rgba(37, 99, 235, 0.04);
 }
 
 .contact-title {
