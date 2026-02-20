@@ -4,10 +4,10 @@ title: Home
 ---
 
 <div style="text-align:center; margin-bottom:20px;">
-<a href="/">Home</a> |
-<a href="/about">About</a> |
-<a href="/education">Education</a> |
-<a href="/projects">Projects</a> |
+<a href="/">Home</a> 
+<a href="/about">About</a> 
+<a href="/education">Education</a> 
+<a href="/projects">Projects</a> 
 <a href="/contact">Contact</a>
 </div>
 
