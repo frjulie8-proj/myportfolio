@@ -11,7 +11,7 @@ title: Home
   <a href="/contact" style="margin: 0 12px;">Contact</a>
 </div>
 
-## Professional Summary
+## About me
 
 I analyze business problems using structured quantitative modeling and data-driven reasoning.  
 My work focuses on forecasting, capacity planning, and investment decision analysis.
