@@ -4,72 +4,144 @@ layout: default
 
 {% include nav.html %}
 
-<div style="margin-top:10px; margin-bottom:20px;">
+{% assign has_overview = page.overview | default: page.summary | default: page.one_liner %}
+{% assign has_context = page.context | default: page.strategic_framing %}
+{% assign has_modeling = page.modeling | default: page.approach | default: page.constraints %}
+{% assign has_risk = page.risk | default: page.primary_risk_drivers | default: page.insights %}
+{% assign has_decision = page.decision | default: page.final_recommendation | default: page.decision_framework %}
+{% assign has_appendix = page.appendix | default: page.repo_url %}
+
+<div class="case-back-link">
   <a href="{{ site.baseurl }}/projects">← Back to Projects</a>
 </div>
 
-<h1 style="margin-bottom:6px;">{{ page.title }}</h1>
+<h1 class="case-title">{{ page.title }}</h1>
 {% if page.subtitle %}
-  <p style="margin-top:0; color:#666;">{{ page.subtitle }}</p>
+  <p class="case-subtitle">{{ page.subtitle }}</p>
 {% endif %}
 
-{% if page.snapshot %}
-  <div style="background:#f4f6f8; padding:15px; border-radius:8px; margin:20px 0;">
-    <strong>Project Snapshot</strong><br><br>
-    {% for item in page.snapshot %}
-      <div>{{ item }}</div>
-    {% endfor %}
+<div class="case-layout">
+  <aside class="sidebar">
+    <nav>
+      {% if has_overview %}<a href="#overview" class="toc-link">Overview</a>{% endif %}
+      {% if has_context %}<a href="#context" class="toc-link">Context</a>{% endif %}
+      {% if has_modeling %}<a href="#modeling" class="toc-link">Modeling</a>{% endif %}
+      {% if has_risk %}<a href="#risk" class="toc-link">Risk</a>{% endif %}
+      {% if has_decision %}<a href="#decision" class="toc-link">Decision</a>{% endif %}
+      {% if has_appendix %}<a href="#appendix" class="toc-link">Appendix</a>{% endif %}
+    </nav>
+  </aside>
+
+  <div class="case-content">
+    {% if has_overview %}
+      <div class="fade-in">
+        <h2 id="overview">Overview</h2>
+        <p class="overview-highlight">{{ has_overview }}</p>
+      </div>
+    {% endif %}
+    {% if page.pull_quote %}
+      <div class="fade-in">
+        <div class="pull-quote">{{ page.pull_quote }}</div>
+      </div>
+    {% endif %}
+
+    {% if has_context %}
+      <div class="fade-in">
+        <h2 id="context">Context</h2>
+        <p>{{ has_context }}</p>
+      </div>
+    {% endif %}
+    {% if page.callout_text %}
+      <div class="fade-in">
+        <div class="constraint-box">
+          {% if page.callout_title %}
+            <strong>{{ page.callout_title }}</strong>
+          {% endif %}
+          <p>{{ page.callout_text }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if has_modeling %}
+      <div class="fade-in">
+        <h2 id="modeling">Modeling</h2>
+        <ul>
+          {% for m in has_modeling %}
+            <li>{{ m }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if has_risk %}
+      <div class="fade-in">
+        <h2 id="risk">Risk</h2>
+        <ul>
+          {% for r in has_risk %}
+            <li>{{ r }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if has_decision %}
+      <div class="fade-in">
+        <h2 id="decision">Decision</h2>
+        <ul>
+          {% for d in has_decision %}
+            <li>{{ d }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if has_appendix %}
+      <div class="fade-in">
+        <h2 id="appendix">Appendix</h2>
+        {% if page.appendix %}
+          <p>{{ page.appendix }}</p>
+        {% endif %}
+        {% if page.repo_url %}
+          <p><a href="{{ page.repo_url }}" target="_blank" class="cta-link">View Technical Work →</a></p>
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
-{% endif %}
+</div>
 
-{% if page.context %}
-  <h2>Context</h2>
-  <p>{{ page.context }}</p>
-{% endif %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(".case-content h2[id]");
+  const navLinks = document.querySelectorAll(".toc-link");
+  if (!sections.length || !navLinks.length) return;
 
-{% if page.business_question %}
-  <h2>Business Question</h2>
-  <p>{{ page.business_question }}</p>
-{% endif %}
+  const onScroll = () => {
+    let current = sections[0].getAttribute("id");
+    let bestDistance = Number.POSITIVE_INFINITY;
 
-{% if page.constraints %}
-  <h2>Key Inputs & Constraints</h2>
-  <ul>
-    {% for c in page.constraints %}
-      <li>{{ c }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const anchorOffset = 130;
 
-{% if page.approach %}
-  <h2>Analytical Approach</h2>
-  <ul>
-    {% for a in page.approach %}
-      <li>{{ a }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+      // Prefer the section nearest to the top anchor line.
+      if (rect.top <= anchorOffset) {
+        const distance = Math.abs(rect.top - anchorOffset);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          current = section.getAttribute("id");
+        }
+      }
+    });
 
-{% if page.insights %}
-  <h2>Key Insights</h2>
-  <ul>
-    {% for k in page.insights %}
-      <li>{{ k }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  };
 
-{% if page.decision_framework %}
-  <h2>Decision Framework</h2>
-  <ul>
-    {% for d in page.decision_framework %}
-      <li>{{ d }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
-{% if page.repo_url %}
-  <p style="margin-top:24px;">
-    <a href="{{ page.repo_url }}" target="_blank">View Technical Work →</a>
-  </p>
-{% endif %}
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+});
+</script>

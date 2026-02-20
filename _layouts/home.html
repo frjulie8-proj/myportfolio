@@ -1,0 +1,91 @@
+---
+layout: default
+---
+
+<style>
+  header { display: none; }
+  .wrapper { width: min(1100px, 94vw); margin: 0 auto; }
+  section { float: none; width: auto; padding-bottom: 20px; }
+</style>
+
+{% include nav.html %}
+
+<section class="section-light">
+  <div class="section-container">
+    <div class="hero fade-in">
+      <h1>Julie Ngo Tran</h1>
+      <p class="subtitle">
+        Business Analytics · Data Modeling · Decision Strategy
+      </p>
+
+      <div class="hero-buttons">
+        <a href="{{ site.baseurl }}/projects" class="btn-primary">Experiences</a>
+        <a href="{{ site.baseurl }}/about" class="btn-secondary">About Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="section-container">
+    <div class="home-projects fade-in">
+      <h2>Featured Work</h2>
+
+      {% assign featured = site.projects | sort: "order" %}
+      {% for project in featured limit:2 %}
+        <div class="project-card">
+          <h3>
+            <a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a>
+          </h3>
+          {% if project.summary %}
+            <p>{{ project.summary }}</p>
+          {% elsif project.one_liner %}
+            <p>{{ project.one_liner }}</p>
+          {% elsif project.subtitle %}
+            <p>{{ project.subtitle }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="section-container">
+    <section class="home-section fade-in">
+      <h2>How I Think About Decisions</h2>
+
+      <div class="approach-grid">
+        <div class="approach-item">
+        <h4>Frame the Objective</h4>
+          <p>
+            Define success criteria, constraints, and strategic trade-offs before modeling.
+          </p>
+        </div>
+
+        <div class="approach-item">
+        <h4>Translate Operations into KPIs</h4>
+          <p>
+            Convert business processes into measurable drivers such as utilization, margin, and payback.
+          </p>
+        </div>
+
+        <div class="approach-item">
+        <h4>Stress Test Scenarios</h4>
+          <p>
+            Evaluate downside risk and sensitivity before making a recommendation.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="section-container">
+    <section class="home-cta fade-in">
+      <h3>Interested in data-driven decision work?</h3>
+      <a href="{{ site.baseurl }}/contact" class="cta-link">Let's connect →</a>
+    </section>
+  </div>
+</section>

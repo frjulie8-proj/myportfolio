@@ -5,30 +5,62 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    text-align: center;
-    padding: 14px 0;
-    font-size: 14px;
+    padding: 20px 0;
+    font-size: 15px;
     background: #fff;
     border-bottom: 1px solid #e5e5e5;
   }
 
   body { padding-top: 88px; }
 
-  .site-nav a { margin: 0 10px; }
+  .site-nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    color: #4b5563;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .site-nav a:hover {
+    color: #111827;
+  }
+
+  .site-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+
+  .site-nav a:hover::after {
+    width: 100%;
+  }
 </style>
 
 {% unless page.url == "/" %}
 <style>
-  header, footer { display: none; }
-  .wrapper { width: 700px; margin: 0 auto; }
+  header { display: none; }
+  .wrapper { width: min(1100px, 94vw); margin: 0 auto; }
   section { float: none; width: auto; padding-bottom: 20px; }
 </style>
 {% endunless %}
 
 <div class="site-nav">
-  <a href="{{ site.baseurl }}/">Home</a>
-  <a href="{{ site.baseurl }}/about">About</a>
-  <a href="{{ site.baseurl }}/education">Education</a>
-  <a href="{{ site.baseurl }}/projects">Projects</a>
-  <a href="{{ site.baseurl }}/contact">Contact</a>
+  <div class="site-nav-links">
+    <a href="{{ site.baseurl }}/">Home</a>
+    <a href="{{ site.baseurl }}/about">About</a>
+    <a href="{{ site.baseurl }}/education">Education</a>
+    <a href="{{ site.baseurl }}/projects">Experiences</a>
+    <a href="{{ site.baseurl }}/contact">Contact</a>
+  </div>
 </div>
+

@@ -9,13 +9,26 @@ title: Projects
 
 {% assign items = site.projects | sort: "order" %}
 
-{% for p in items %}
-### [{{ p.title }}]({{ site.baseurl }}{{ p.url }})
-{{ p.subtitle }}
+<div class="projects-grid">
+  {% for project in items %}
+    <a href="{{ site.baseurl }}{{ project.url }}" class="project-item">
+      {% if project.category %}
+        <div class="project-meta">
+          <span class="project-tag">{{ project.category }}</span>
+        </div>
+      {% endif %}
 
-{% if p.one_liner %}
-{{ p.one_liner }}
-{% endif %}
+      <h3>{{ project.title }}</h3>
 
----
-{% endfor %}
+      {% if project.summary %}
+        <p>{{ project.summary }}</p>
+      {% elsif project.one_liner %}
+        <p>{{ project.one_liner }}</p>
+      {% elsif project.subtitle %}
+        <p>{{ project.subtitle }}</p>
+      {% endif %}
+
+      <span class="project-link">View Case Study →</span>
+    </a>
+  {% endfor %}
+</div>
