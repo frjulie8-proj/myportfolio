@@ -1,0 +1,23 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+/* Keep links black site-wide (except inline-styled sidebar buttons). */
+.site-nav a,
+section a,
+footer a {
+  color: #000 !important;
+}
+
+.site-nav a:visited,
+.site-nav a:hover,
+.site-nav a:focus,
+section a:visited,
+section a:hover,
+section a:focus,
+footer a:visited,
+footer a:hover,
+footer a:focus {
+  color: #000 !important;
+}
