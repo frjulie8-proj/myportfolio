@@ -1,19 +1,11 @@
 theme: jekyll-theme-minimal
-
-
 title: Julie Ngo Tran
-description: MS Applied Business Analytics at Boston University
+description: Business Analytics | Data Cleaning | Decision Modeling | Forecasting 
 
-nav:
-  - name: Home
-    link: /
-  - name: About
-    link: /about
-  - name: Education
-    link: /education
-  - name: Passion
-    link: /passion
-  - name: Projects
-    link: /projects
-  - name: Contact
-    link: /contact
+show_downloads: false
+
+github:
+  is_project_page: false
+
+linkedin: https://linkedin.com/in/your-link
+email: yourname@email.com
