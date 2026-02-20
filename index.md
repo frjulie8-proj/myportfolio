@@ -3,12 +3,12 @@ layout: default
 title: Home
 ---
 
-<div style="text-align:center; margin-bottom:20px;">
-<a href="/">Home</a> 
-<a href="/about">About</a> 
-<a href="/education">Education</a> 
-<a href="/projects">Projects</a> 
-<a href="/contact">Contact</a>
+<div style="text-align:center; margin-bottom:30px;">
+  <a href="/" style="margin: 0 12px;">Home</a>
+  <a href="/about" style="margin: 0 12px;">About</a>
+  <a href="/education" style="margin: 0 12px;">Education</a>
+  <a href="/projects" style="margin: 0 12px;">Projects</a>
+  <a href="/contact" style="margin: 0 12px;">Contact</a>
 </div>
 
 ## Professional Summary
