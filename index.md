@@ -2,6 +2,7 @@
 layout: default
 title: Home
 ---
+
 <div style="text-align:center; margin-bottom:20px;">
 <a href="/">Home</a> |
 <a href="/about">About</a> |
@@ -10,25 +11,19 @@ title: Home
 <a href="/contact">Contact</a>
 </div>
 
-# Julie Ngo Tran
+## Professional Summary
 
-MS Applied Business Analytics  
-SQL • Python • R  
+I analyze business problems using structured quantitative modeling and data-driven reasoning.  
+My work focuses on forecasting, capacity planning, and investment decision analysis.
 
-## About Me
+---
 
-I focus on data-driven decision modeling, forecasting, and operational optimization.
-
-## Projects
+## Featured Projects
 
 ### Brewery Investment Decision Model
-Capacity modeling and ROI sensitivity analysis.  
-[View Code](https://github.com/yourusername/brewery-project)
+Capacity utilization modeling and ROI sensitivity analysis for a restaurant investment scenario.  
+[View Project →](/projects)
 
 ### Demand Forecasting Analysis
-Time-series forecasting with scenario modeling.  
-[View Code](https://github.com/yourusername/forecast-project)
-
-## Contact
-
-[LinkedIn](https://linkedin.com/in/yourprofile)
+Time-series forecasting with scenario modeling to evaluate operational impact.  
+[View Project →](/projects)
