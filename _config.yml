@@ -1,9 +1,9 @@
 theme: jekyll-theme-minimal
 title: Julie Ngo Tran
-
+baseurl: "/myportfolio"  
 description: |
   Business Analytics : Data Cleaning , Data Modeling , Forecasting
-baseurl: "/myportfolio"  
+
   <br><br>
   
   <a href="https://linkedin.com/in/YOUR-LINK" target="_blank"
