@@ -24,6 +24,6 @@ My work focuses on forecasting, capacity planning, and investment decision analy
 Capacity utilization modeling and ROI sensitivity analysis for a restaurant investment scenario.  
 [View Project →](/projects)
 
-### Demand Forecasting Analysis
-Time-series forecasting with scenario modeling to evaluate operational impact.  
+### NYC Real Estate Sales Analysis · R
+Analyzed multi-year transaction data using R. Conducted time-series trend analysis on sales volume and total revenue, and compared structural shifts across periods. 
 [View Project →](/projects)
